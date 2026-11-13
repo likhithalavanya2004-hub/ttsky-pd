@@ -1,0 +1,55 @@
+# Tiny Tapeout project information
+project:
+  title:        "Context-Aware Predictive Battery FDI"
+  author:       "Author 1, Author 2, Shylashree N, RV College of Engineering"
+  discord:      ""
+  description:  "Look-ahead thermal/voltage prediction, load-context residuals, fault-signature decoder (sensor vs cell fault class), graded derate-isolate fail-safe"
+  language:     "Verilog"
+  clock_hz:     1000000
+
+  # How many tiles your design occupies? A single tile is about 167x108 uM.
+  tiles: "1x1"
+
+  top_module:  "tt_um_rvce_battery_fdi"
+
+  # Source files must be in ./src. Also listed in PROJECT_SOURCES in test/Makefile.
+  source_files:
+    - "project.v"
+    - "bfdi_sync.v"
+    - "bfdi_channels.v"
+    - "bfdi_decoder.v"
+
+# The pinout of your project. Leave unused pins blank. DO NOT delete or add any pins.
+pinout:
+  # Inputs
+  ui[0]: "SAMPLE0"
+  ui[1]: "SAMPLE1"
+  ui[2]: "SAMPLE2"
+  ui[3]: "SAMPLE3"
+  ui[4]: "SAMPLE4"
+  ui[5]: "SAMPLE5"
+  ui[6]: "SAMPLE6"
+  ui[7]: "SAMPLE7"
+
+  # Outputs
+  uo[0]: "FAULT_CLS0"
+  uo[1]: "FAULT_CLS1"
+  uo[2]: "FAULT_CLS2"
+  uo[3]: "DERATE"
+  uo[4]: "ISOLATE"
+  uo[5]: "LOOKAHEAD_TRIP"
+  uo[6]: "READY"
+  uo[7]: "SHORT_SIGNATURE"
+
+  # Bidirectional pins
+  uio[0]: "CH_SEL0"
+  uio[1]: "CH_SEL1"
+  uio[2]: "STROBE"
+  uio[3]: "CLEAR"
+  uio[4]: "EXT_TRIP"
+  uio[5]: "UNEXPLAINED_HEAT"
+  uio[6]: "UNEXPLAINED_SAG"
+  uio[7]: "T_MISMATCH"
+
+# Do not change!
+yaml_version: 6
